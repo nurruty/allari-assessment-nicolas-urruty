@@ -1,6 +1,6 @@
-from load_contacts import normalize_phone
+from utils.utils import normalize_phone
 
-def get_phones_by_person(persons, contacts):
+def get_contacts_by_person(persons, contacts):
     contact_phones_by_person = dict()
 
     for person_id in persons:
@@ -18,7 +18,7 @@ def has_phone_in_contacts(phone, contact_phones):
     return phone in contact_phones
 
 def get_connected_persons_by_contact(persons, contacts, person_id):
-    contact_phones_by_person = get_phones_by_person(persons, contacts)
+    contact_phones_by_person = get_contacts_by_person(persons, contacts)
     connected_ids = []
     
     if person_id not in persons:

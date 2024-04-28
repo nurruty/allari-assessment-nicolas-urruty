@@ -1,8 +1,8 @@
 import pytest
 
-from connected_persons_by_contact import get_phones_by_person, get_connected_persons_by_contact
-from load_persons import Person
-from load_contacts import Contact, Phone
+from classes.person import Person
+from classes.contact import Contact, Phone
+from connected_persons.connected_persons_by_contact import get_contacts_by_person, get_connected_persons_by_contact
 
 @pytest.fixture
 def persons():
@@ -29,21 +29,21 @@ def contacts():
         ])
     ]
 
-def test_get_phones_by_person(persons, contacts):
+def test_get_contacts_by_person(persons, contacts):
     expected_result = {
         1: (persons[1].phone, ["1034589741", "1234567890"]),
         2: (persons[2].phone, ["555555555"]),
         3: (persons[3].phone, ["0800111111"])
     }
-    assert get_phones_by_person(persons, contacts) == expected_result
+    assert get_contacts_by_person(persons, contacts) == expected_result
 
-def test_get_phones_by_person_no_contacts(persons, contacts):
+def test_get_contacts_by_person_no_contacts(persons, contacts):
     expected_result = {
         1: (persons[1].phone, []),
         2: (persons[2].phone, ["555555555"]),
         3: (persons[3].phone, ["0800111111"])
     }
-    assert get_phones_by_person(persons, contacts[1:]) == expected_result
+    assert get_contacts_by_person(persons, contacts[1:]) == expected_result
 
 
 # get_connected_persons_by_contact

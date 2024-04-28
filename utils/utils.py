@@ -1,6 +1,12 @@
 from datetime import datetime
 
-def overlaps_90_days(start1, end1, start2, end2):
+def normalize_phone(phone_number):
+    digits = ''.join(filter(str.isdigit, phone_number))
+    if len(digits) == 11 and digits[0] == '1':
+        digits = digits[1:]
+    return digits
+
+def overlaps_days(start1, end1, start2, end2, days = 90):
     today = datetime.today().date()
     end_or_today1 = end1 or today
     end_or_today2 = end2 or today
@@ -23,30 +29,6 @@ def overlaps_90_days(start1, end1, start2, end2):
         if(start1 <= start2) and (end_or_today1 <= end_or_today2):
             diff = end_or_today1 - start2
         
-        return diff.days >= 90
+        return diff.days >= days
     else:
         return False
-    
-def have_worked_together(first_person, second_person):
-    for exp1 in first_person.experience:
-        for exp2 in second_person.experience:
-            if exp1.company == exp2.company and overlaps_90_days(exp1.start, exp1.end, exp2.start, exp2.end):
-                return True
-    return False
-
-def get_connected_persons_by_job(persons, person_id):
-    connectedIds = []
-    
-    if(person_id not in persons):
-        raise Exception('Error: Person with ID not found')
-
-    target_person = persons[person_id]
-    
-    for key in persons:
-        if(key != person_id):
-          person = persons[key]
-          if(target_person != None) and have_worked_together(person, target_person):
-            connectedIds.append(person.id)
-
-    return connectedIds
-

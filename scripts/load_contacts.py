@@ -1,16 +1,6 @@
 import json
-
-class Phone:
-    def __init__(self, number, type):
-        self.number = number
-        self.type = type
-
-class Contact:
-    def __init__(self, id, owner_id, contact_nickname, phones):
-        self.id = id
-        self.owner_id = owner_id
-        self.contact_nickname = contact_nickname
-        self.phones = phones
+from classes.contact import Contact, Phone
+from utils.utils import normalize_phone
 
 def load_contacts_from_json(file_path):
     contacts = []
@@ -30,9 +20,3 @@ def load_contacts_from_json(file_path):
             contacts.append(contact)
     return contacts
 
-def normalize_phone(phone_number):
-    # Remove non-digit characters and country code if present
-    digits = ''.join(filter(str.isdigit, phone_number))
-    if len(digits) == 11 and digits[0] == '1':
-        digits = digits[1:]  # Remove country code '1'
-    return digits

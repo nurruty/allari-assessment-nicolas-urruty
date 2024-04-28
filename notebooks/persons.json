@@ -1,0 +1,104 @@
+[
+  {
+    "id": 0,
+    "first": "Jane",
+    "last": "Doe",
+    "phone": "1-2123458974",
+    "experience": [
+      {
+        "company": "OrangeCart",
+        "title": "Director of Marketing",
+        "start": "2017-01-01",
+        "end": null
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "first": "Steve",
+    "last": "Jobs",
+    "phone": "(212) 345-8974",
+    "experience": [
+      {
+        "company": "Allari",
+        "title": "Director of Marketing",
+        "start": "2015-01-01",
+        "end": "2018-01-01"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "first": "Bill",
+    "last": "Gates",
+    "phone": "1-2123411113",
+    "experience": [
+      {
+        "company": "OrangeCart",
+        "title": "Director of Marketing",
+        "start": "2015-01-01",
+        "end": "2018-01-01"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "first": "Tim",
+    "last": "Cook",
+    "phone": "(1) 212345897",
+    "experience": [
+      {
+        "company": "Google",
+        "title": "Director of Marketing",
+        "start": "2015-01-01",
+        "end": "2017-01-01"
+      },
+      {
+        "company": "Allari",
+        "title": "Director of Marketing",
+        "start": "2018-01-01",
+        "end": "2019-01-01"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "first": "Alan",
+    "last": "Turing",
+    "phone": "5989555120",
+    "experience": [
+      {
+        "company": "Google",
+        "title": "Director of Marketing",
+        "start": "2014-01-01",
+        "end": "2019-01-01"
+      },
+      {
+        "company": "Allari",
+        "title": "Director of Marketing",
+        "start": "2011-01-01",
+        "end": "2014-01-01"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "first": "Bugs",
+    "last": "Bunny",
+    "phone": "1-2123458004",
+    "experience": [
+      {
+        "company": "Pixar",
+        "title": "Director of Marketing",
+        "start": "2014-01-01",
+        "end": "2019-01-01"
+      },
+      {
+        "company": "Allari",
+        "title": "Director of Marketing",
+        "start": "2011-03-01",
+        "end": "2011-04-15"
+      }
+    ]
+  }
+]
