@@ -23,7 +23,7 @@ def overlaps_90_days(start1, end1, start2, end2):
         if(start1 <= start2) and (end_or_today1 <= end_or_today2):
             diff = end_or_today1 - start2
         
-        return diff.days > 90
+        return diff.days >= 90
     else:
         return False
     
@@ -38,8 +38,7 @@ def get_connected_persons_by_job(persons, person_id):
     connectedIds = []
     
     if(person_id not in persons):
-        print('Error: Person with ID not found')
-        return
+        raise Exception('Error: Person with ID not found')
 
     target_person = persons[person_id]
     
