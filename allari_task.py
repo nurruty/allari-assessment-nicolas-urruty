@@ -1,20 +1,13 @@
 import sys
 from scripts.load_persons import load_persons_from_json
 from scripts.load_contacts import load_contacts_from_json
-from connected_persons.connected_persons_by_job import get_connected_persons_by_job
-from connected_persons.connected_persons_by_contact import get_connected_persons_by_contact
+from connected_persons.connected_persons import get_connected_persons
+
 
 if(len(sys.argv) == 1):
-  print('Missing person ID')
-  exit()
+  exit("Missing person ID")
 
-person_id = int(sys.argv[1])
 persons = load_persons_from_json('persons.json')
 contacts = load_contacts_from_json('contacts.json')
-
-connected_persons_by_job = get_connected_persons_by_job(persons, person_id)
-connected_persons_by_contact = get_connected_persons_by_contact(persons, contacts, person_id)
-
-for person_id in set(connected_persons_by_job).union(set(connected_persons_by_contact)):
-  person = persons[person_id]
-  print(person.id, ":", person.first, person.last)
+person_id = int(sys.argv[1])
+get_connected_persons(person_id, persons, contacts)

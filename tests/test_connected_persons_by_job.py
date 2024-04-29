@@ -35,7 +35,6 @@ def test_have_worked_together(experiences1, experiences2, expected):
 
 @pytest.fixture
 def persons():
-    # Sample persons data for testing
     return {
         1: Person(1, 'Steve', 'Jobs', '123456789', [
             Experience("CompanyA", "The best company", datetime(2024, 1, 1).date(), datetime(2024, 4, 1).date())
@@ -71,5 +70,7 @@ def test_get_connected_persons_by_job_person_exists(persons, person_id, expected
     assert connected_ids == expected
 
 def test_get_connected_persons_by_job_person_does_not_exist(persons):
-    with pytest.raises(Exception):
+    with pytest.raises(Exception) as exception:
         get_connected_persons_by_job(persons, 7)
+    assert str(exception.value) == 'Person with ID 7 not found'
+    

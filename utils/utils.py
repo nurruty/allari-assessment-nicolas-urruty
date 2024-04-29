@@ -1,6 +1,9 @@
 from datetime import datetime
 
 def normalize_phone(phone_number):
+    if phone_number == None:
+        return ""
+    
     digits = ''.join(filter(str.isdigit, phone_number))
     if len(digits) == 11 and digits[0] == '1':
         digits = digits[1:]

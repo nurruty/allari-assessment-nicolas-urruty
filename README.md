@@ -18,6 +18,8 @@ either one has the other’s phone number in their list of contacts.
 
 </ol>
 
+_Note: The definitions of Person and Contact are given_
+
 ## Installation
 
 Open a new terminal. To ensure a safe execution environment, create a new virtual environment.
@@ -59,7 +61,17 @@ python allari_task.py <person_id>
 If no **person_id** is provided, the console will return the following error:
 
 ```
+$ python allari_task.py
+
 Missing person ID
+```
+
+If **person_id** is not part of the list of Persons in persons.json an exception will be raised:
+
+```
+$ python allari_task.py 7
+
+Exception: Person with ID 7 not found
 ```
 
 If execution is successful, the list of connected persons with the specified **person_id** will be printed. For example, this is the output for the sample files with `person_id=1`:
@@ -67,15 +79,24 @@ If execution is successful, the list of connected persons with the specified **p
 ```
 $ python allari_task.py 1
 
-0 : Jane Doe
-2 : Bill Gates
+0: Jane Doe
+3: Tim Cook
+4: Alan Turing
+```
+
+If there are no Persons connected to the provided **person_id**, the following message will be printed:
+
+```
+$ python allari_task.py 5
+
+No connected Persons to person ID: 5
 ```
 
 ## Testing
 
 Another requirement of the assessment was to create unit and integration tests.
 
-The list of unit tests includes:
+The list of unit and integration tests includes:
 
 <ul>
 <li> test_overlaps_days </li>
@@ -86,6 +107,8 @@ The list of unit tests includes:
 <li> test_get_contacts_by_person_no_contacts </li>
 <li> test_get_connected_persons_by_contact </li>
 <li> test_get_connected_persons_by_contact_person_not_found </li>
+<li>test_get_connected_persons</li>
+<li>test_get_no_connected_persons</li>
 </ul>
 
 To execute all tests run:
@@ -108,14 +131,18 @@ allari-task-nicolas-urruty/
       __init__.py
       connected_persons_by_contact.py
       connected_persons_by_job.py
+      connected_persons.py
   scripts/
       __init__.py
       load_contacts.py
       load_persons.py
   test/
       __init__.py
-      test_connected_persons_by_contact
-      test_connected_persons_by_job
+      test_connected_persons_by_contact.py
+      test_connected_persons_by_job.py
+      test_connected_persons.py
+      test_contacts.json
+      test_persons.json
       test_utils
   utils/
       utils.py
@@ -134,7 +161,7 @@ Contains the two project classes: Person and Contact.
 
 ### connected_persons
 
-Contains the solutions for part 2 and 3.2
+Contains the solutions for parts 2, 3.2 and 4
 
 ### scripts
 

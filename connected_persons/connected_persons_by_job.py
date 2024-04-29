@@ -11,7 +11,7 @@ def get_connected_persons_by_job(persons, person_id):
     connectedIds = []
     
     if(person_id not in persons):
-        raise Exception('Error: Person with ID not found')
+        raise Exception("Person with ID %d not found" %person_id)
 
     target_person = persons[person_id]
     
